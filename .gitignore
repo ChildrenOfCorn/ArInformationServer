@@ -10,7 +10,6 @@ log
 
 # BlueJ files
 *.ctxt
-/cfg/config.json
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

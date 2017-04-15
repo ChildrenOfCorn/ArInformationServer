@@ -19,6 +19,9 @@ public class ProductInfo {
     private List<Comment> comments; // комментарии
     private String url; // урл объекта
 
+    public ProductInfo() {
+    }
+
     public ProductInfo(long id) {
         this.id = id;
     }

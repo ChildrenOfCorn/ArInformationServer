@@ -1,10 +1,13 @@
 {
-  "data": [
+  "port": 8002,
+  "productInfos": [
     {
       "id": 1,
       "name": "Carlsberg",
       "briefDesc": "",
       "rating": 4.0,
+      "comments":[],
+      "users":[],
       "url": "http://ya.ru"
     },
     {
@@ -12,14 +15,18 @@
       "name": "Guinnes",
       "briefDesc": "",
       "rating": 5.0,
-      "url": "http://ya.ru"
+      "url": "http://ya.ru",
+      "comments":[],
+      "users":[]
     },
     {
       "id": 3,
       "name": "Жигулевское",
       "briefDesc": "",
       "rating": 3.5,
-      "url": "http://ya.ru"
+      "url": "http://ya.ru",
+      "comments":[],
+      "users":[]
     }
   ]
 }

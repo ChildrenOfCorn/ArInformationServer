@@ -4,6 +4,8 @@ package com.github.childrenofcorn.main;
  * Created by grishberg on 15.04.17.
  */
 
+import com.github.childrenofcorn.common.ConfigContext;
+import com.github.childrenofcorn.common.ConfigReader;
 import com.github.childrenofcorn.data.model.ProductInfo;
 import com.github.childrenofcorn.services.accounts.AccountService;
 import com.github.childrenofcorn.services.accounts.AccountServiceInMemoryImpl;
@@ -19,6 +21,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+
+import java.util.List;
 
 @Slf4j
 @SpringBootApplication
@@ -59,19 +63,18 @@ public class Application {
     }
 
     private void initService(InfoServiceImpl infoService) {
-        ProductInfo productInfo = new ProductInfo(1);
-        productInfo.setName("Coca-Cola");
-        productInfo.setUrl("http://ya.ru");
-        infoService.addProductInfo(1, productInfo);
+        ProductInfo[] productInfoList = importProducts();
+        log.info(String.format("added %d items", productInfoList.length));
+        for (ProductInfo productInfo : productInfoList) {
+            infoService.addProductInfo(productInfo.getId(), productInfo);
+        }
+    }
 
-        productInfo = new ProductInfo(2);
-        productInfo.setName("Guinnes");
-        productInfo.setUrl("http://ya.ru");
-        infoService.addProductInfo(2, productInfo);
-
-        productInfo = new ProductInfo(3);
-        productInfo.setName("DZJigulevskoe");
-        productInfo.setUrl("http://ya.ru");
-        infoService.addProductInfo(3, productInfo);
+    private ProductInfo[] importProducts() {
+        ConfigContext configContext = ConfigReader.readConfig();
+        if (configContext == null || configContext.getProductInfos() == null) {
+            return new ProductInfo[0];
+        }
+        return configContext.getProductInfos();
     }
 }
