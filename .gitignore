@@ -4,11 +4,13 @@
 *.class
 *.iml
 .idea
+log
 # Log file
 *.log
 
 # BlueJ files
 *.ctxt
+/cfg/config.json
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
