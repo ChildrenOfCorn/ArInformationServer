@@ -1,12 +1,12 @@
 package com.github.childrenofcorn.services.accounts;
 
-import com.github.childrenofcorn.data.model.UserEntity;
+import com.github.childrenofcorn.data.model.UserInfo;
 
 /**
  * Created by grishberg on 15.04.17.
  */
 public interface AccountService {
-    UserEntity registerUser(String userName);
+    UserInfo registerUser(String userName);
 
-    UserEntity getUserByAccessToken(String accessToken);
+    UserInfo getUserById(long userId);
 }

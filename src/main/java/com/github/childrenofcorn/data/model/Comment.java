@@ -7,6 +7,6 @@ import lombok.Data;
  */
 @Data
 public class Comment {
-    private String text;
+    private final String text;
     private UserInfo owner;
 }

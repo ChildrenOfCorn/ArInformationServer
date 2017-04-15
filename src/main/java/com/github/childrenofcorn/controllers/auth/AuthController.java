@@ -20,6 +20,6 @@ public interface AuthController {
 
     @RequestMapping(value = "/registerUser", method = POST)
     Map registerUser(HttpServletRequest request,
-                       @RequestParam String name) throws AppException.WrongMeetingTokenException;
+                       @RequestParam String name) throws AppException.WrongProductIdException;
 
 }

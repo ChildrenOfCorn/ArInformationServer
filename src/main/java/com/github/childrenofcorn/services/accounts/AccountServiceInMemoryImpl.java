@@ -1,10 +1,9 @@
 package com.github.childrenofcorn.services.accounts;
 
-import com.github.childrenofcorn.data.model.UserEntity;
+import com.github.childrenofcorn.data.model.UserInfo;
 import lombok.NonNull;
 
 import java.util.Map;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,18 +12,26 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class AccountServiceInMemoryImpl implements AccountService {
     private final AtomicLong userId = new AtomicLong();
-    private final Map<String, UserEntity> userAccessTokens = new ConcurrentHashMap<>();
+    private final Map<Long, UserInfo> userAccessTokens = new ConcurrentHashMap<>();
 
     @Override
-    public UserEntity registerUser(@NonNull String userName) {
-        String accessToken = UUID.randomUUID().toString();
-        UserEntity user = new UserEntity(userId.incrementAndGet(), userName, accessToken);
-        userAccessTokens.put(accessToken, user);
+    public UserInfo registerUser(@NonNull String userName) {
+
+        for (Map.Entry<Long, UserInfo> entry : userAccessTokens.entrySet()) {
+            UserInfo userEntity = entry.getValue();
+            if (userEntity.getName().equals(userName)) {
+                return userEntity;
+            }
+        }
+
+        long id = userId.incrementAndGet();
+        UserInfo user = new UserInfo(id, userName);
+        userAccessTokens.put(id, user);
         return user;
     }
 
     @Override
-    public UserEntity getUserByAccessToken(@NonNull String accessToken) {
-        return userAccessTokens.get(accessToken);
+    public UserInfo getUserById(long userId) {
+        return userAccessTokens.get(userId);
     }
 }

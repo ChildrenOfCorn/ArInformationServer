@@ -8,6 +8,8 @@ import com.github.childrenofcorn.services.accounts.AccountService;
 import com.github.childrenofcorn.services.accounts.AccountServiceInMemoryImpl;
 import com.github.childrenofcorn.services.info.InfoService;
 import com.github.childrenofcorn.services.info.InfoServiceImpl;
+import com.github.childrenofcorn.services.comment.CommentService;
+import com.github.childrenofcorn.services.comment.CommentServiceImpl;
 import com.github.childrenofcorn.services.link.LinkService;
 import com.github.childrenofcorn.services.link.LinkServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -35,15 +37,21 @@ public class Application {
         return new AccountServiceInMemoryImpl();
     }
 
-    @Bean(name = "infoService")
+    @Bean(name = "commentService")
     @Autowired
-    public InfoService infoService() {
-        return new InfoServiceImpl();
+    public CommentService commentService() {
+        return new CommentServiceImpl();
     }
 
     @Bean(name = "linkService")
     @Autowired
     public LinkService linkService() {
         return new LinkServiceImpl();
+    }
+
+    @Bean(name = "infoService")
+    @Autowired
+    public InfoService infoService() {
+        return new InfoServiceImpl();
     }
 }

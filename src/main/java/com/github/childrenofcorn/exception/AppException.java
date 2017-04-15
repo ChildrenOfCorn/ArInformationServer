@@ -21,8 +21,8 @@ public class AppException extends Exception {
         this.code = code;
     }
 
-    public static final class WrongMeetingTokenException extends AppException {
-        public WrongMeetingTokenException() {
+    public static final class WrongProductIdException extends AppException {
+        public WrongProductIdException() {
             super(WRONG_MEETING_TOKEN_EXCEPTION, "Wrong meeting token");
         }
     }

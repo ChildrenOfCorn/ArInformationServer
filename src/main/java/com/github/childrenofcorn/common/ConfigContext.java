@@ -1,7 +1,7 @@
 package com.github.childrenofcorn.common;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.github.childrenofcorn.data.model.UserEntity;
+import com.github.childrenofcorn.data.model.UserInfo;
 import freemarker.template.Configuration;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +16,6 @@ public class ConfigContext {
     private Configuration templateConfiguration;
     private int port;
     private int lightPin;
-    UserEntity[] users;
+    UserInfo[] users;
 }
 

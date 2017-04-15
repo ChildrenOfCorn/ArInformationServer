@@ -17,6 +17,6 @@ import java.util.Map;
 public interface InfoController {
     @RequestMapping(value = "/getProductInfo")
     Map getProductInfo(HttpServletRequest request,
-                       @RequestParam Long userId,
-                       @RequestParam Long productId) throws AppException.WrongMeetingTokenException;
+                       @RequestParam long userId,
+                       @RequestParam long productId) throws AppException.WrongProductIdException;
 }
