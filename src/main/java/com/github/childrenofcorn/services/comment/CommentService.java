@@ -8,7 +8,9 @@ import java.util.List;
  * Created by grishberg on 15.04.17.
  */
 public interface CommentService {
-    void addCommentToProduct(long productId, long userId, String commentText);
+    float getRatingForProduct(long productId);
+
+    float addCommentToProduct(long productId, long userId, String commentText, float rating);
 
     List<Comment> getCommentsByProductId(long productId);
 }

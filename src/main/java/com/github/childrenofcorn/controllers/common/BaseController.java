@@ -27,8 +27,8 @@ public class BaseController {
     @Autowired
     protected LinkService linkService;
 
-    protected ProductInfo getProductInfoById(long productId) throws AppException.WrongProductIdException {
-        ProductInfo productInfo = infoService.getProductInfoByProductId(productId);
+    protected ProductInfo getProductInfoById(long productId, long currentUserId) throws AppException.WrongProductIdException {
+        ProductInfo productInfo = infoService.getProductInfoByProductId(productId, currentUserId);
         if (productInfo == null) {
             throw new AppException.WrongProductIdException();
         }

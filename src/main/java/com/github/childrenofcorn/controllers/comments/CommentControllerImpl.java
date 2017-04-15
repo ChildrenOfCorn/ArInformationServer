@@ -24,8 +24,9 @@ public class CommentControllerImpl extends BaseController implements CommentCont
     public Map postComment(HttpServletRequest request,
                            @RequestParam long userId,
                            @RequestParam long productId,
-                           @RequestParam String commentText) throws AppException.WrongAccessTokenException {
-        commentService.addCommentToProduct(productId, userId, commentText);
-        return RUtils.success(true);
+                           @RequestParam String commentText,
+                           @RequestParam float rating) throws AppException.WrongAccessTokenException {
+        float newRating = commentService.addCommentToProduct(productId, userId, commentText, rating);
+        return RUtils.success(newRating);
     }
 }

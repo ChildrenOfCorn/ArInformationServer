@@ -26,5 +26,6 @@ public interface CommentController {
     Map postComment(HttpServletRequest request,
                     @RequestParam long userId,
                     @RequestParam long productId,
-                    @RequestParam String commentText) throws AppException.WrongAccessTokenException;
+                    @RequestParam String commentText,
+                    @RequestParam float rating) throws AppException.WrongAccessTokenException;
 }

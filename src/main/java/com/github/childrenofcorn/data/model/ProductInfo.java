@@ -10,10 +10,11 @@ import lombok.Setter;
  * Данные о продукте
  */
 @Data
-@Setter
 public class ProductInfo {
     private long id;
     private String name; // название продукта
+    private String briefDesc; // описание продукта
+    private float rating; // рейтинг продукта, вычисляется из комментов
     private List<UserInfo> users; //  массив юзеров, которые просмотрели
     private List<Comment> comments; // комментарии
     private String url; // урл объекта

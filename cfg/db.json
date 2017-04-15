@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Carlsberg",
+      "briefDesc": "",
+      "rating": 4.0,
+      "url": "http://ya.ru"
+    },
+    {
+      "id": 2,
+      "name": "Guinnes",
+      "briefDesc": "",
+      "rating": 5.0,
+      "url": "http://ya.ru"
+    },
+    {
+      "id": 3,
+      "name": "Жигулевское",
+      "briefDesc": "",
+      "rating": 3.5,
+      "url": "http://ya.ru"
+    }
+  ]
+}

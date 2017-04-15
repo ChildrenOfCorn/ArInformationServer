@@ -8,5 +8,6 @@ import lombok.Data;
 @Data
 public class Comment {
     private final String text;
-    private UserInfo owner;
+    private final UserInfo owner;
+    private final float rating;
 }

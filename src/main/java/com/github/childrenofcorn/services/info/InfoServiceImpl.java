@@ -20,11 +20,12 @@ public class InfoServiceImpl implements InfoService {
     private final Map<Long, ProductInfo> productInfoMap = new ConcurrentHashMap<>(INITIAL_CAPACITY);
 
     @Override
-    public ProductInfo getProductInfoByProductId(long productId) {
+    public ProductInfo getProductInfoByProductId(long productId, long currentUserId) {
         ProductInfo productInfo = productInfoMap.get(productId);
         if (productInfo != null) {
+            productInfo.setRating(commentService.getRatingForProduct(productId));
             productInfo.setComments(commentService.getCommentsByProductId(productId));
-            productInfo.setUsers(linkService.getVisitedUsers(productId));
+            productInfo.setUsers(linkService.getVisitedUsers(productId, currentUserId));
         }
         return productInfo;
     }

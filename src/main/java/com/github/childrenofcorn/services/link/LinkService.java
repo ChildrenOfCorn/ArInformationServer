@@ -10,5 +10,5 @@ import java.util.List;
 public interface LinkService {
     void linkUserToProduct(long productId, UserInfo user);
 
-    List<UserInfo> getVisitedUsers(long productId);
+    List<UserInfo> getVisitedUsers(long productId, long currentUserId);
 }
